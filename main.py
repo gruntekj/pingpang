@@ -1,6 +1,6 @@
 from pygame import *
 font.init()
-font1 = font.SysFont('Arial', 100)
+font1 = font.SysFont('Arial', 40)
 window = display.set_mode((700, 500))
 display.set_caption('ping pong')
 background = transform.scale(image.load('background.png'), (700, 500))
@@ -48,8 +48,11 @@ while run == True:
         my *= -1
     if ball.rect.x < 0 or ball.rect.x > 670:
         run = False
-        text_lose = font1.render('GAME OVER', True, (255, 0, 0))
-        window.blit(text_lose, (200, 150))
+        if ball.rect.x < 0:
+            text_lose = font1.render('GAME OVER FOR PLAYER 1', True, (255, 0, 0))
+        elif ball.rect.x > 670:
+            text_lose = font1.render('GAME OVER FOR PLAYER 2', True, (255, 0, 0))
+        window.blit(text_lose, (100, 200))
     
     ball.rect.x += mx
     ball.rect.y += my
