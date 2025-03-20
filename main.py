@@ -46,7 +46,7 @@ while run == True:
         my *= -1
     elif ball.rect.y > 450:
         my *= -1
-    if ball.rect.x < 40 or ball.rect.x > 670:
+    if ball.rect.x < 0 or ball.rect.x > 670:
         run = False
         text_lose = font1.render('GAME OVER', True, (255, 0, 0))
         window.blit(text_lose, (200, 150))
