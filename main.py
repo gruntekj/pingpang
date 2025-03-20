@@ -25,10 +25,10 @@ class Player(GameSprite):
         keys = key.get_pressed()
         if keys[self.key1] and self.rect.y > 0:
             self.rect.y -= self.speed
-        if keys[self.key2] and self.rect.y < 267:
+        if keys[self.key2] and self.rect.y < 330:
             self.rect.y += self.speed
-p_1 = Player('stick.png', 0, 250, 50, 170, 5, K_w, K_s)
-p_2 = Player('stick.png', 650, 250, 50, 170, 5, K_UP, K_DOWN)
+p_1 = Player('stick.png', 33, 250, 30, 170, 5, K_w, K_s)
+p_2 = Player('stick.png', 617, 250, 30, 170, 5, K_UP, K_DOWN)
 ball = GameSprite('ball.png', 350, 250, 50, 50, 10)
 mx = 4
 my = 4
@@ -48,7 +48,7 @@ while run == True:
         my *= -1
     if ball.rect.x < 40 or ball.rect.x > 670:
         run = False
-        text_lose = font1.render('LOX', True, (255, 0, 0))
+        text_lose = font1.render('GAME OVER', True, (255, 0, 0))
         window.blit(text_lose, (200, 150))
     
     ball.rect.x += mx
